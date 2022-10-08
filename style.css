@@ -1,0 +1,56 @@
+html {
+    font-family: system-ui;
+    font-size: clamp(1em, 0.909em + 0.45vmin, 1.25em);
+}
+
+body :not(:is(h1,h2,h3,h4,h5,h6)) {
+    line-height: 1.75;
+}
+
+body {
+    max-width: 70ch;
+    padding: calc(1vmin + .5rem);
+    margin-inline: auto;
+    background: #293133;
+}
+
+header {
+    text-align: center;
+    margin: 2em;
+}
+
+nav {
+    border-top: 1px solid #31393b;
+    font-family: Hack, monospace;
+    font-size: 0.75em;
+    margin-bottom: 2em;
+    text-align: right;
+}
+
+nav a {
+    color: #a8a452;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #5ab0ac;
+}
+
+main {
+    text-align: center;
+}
+
+#cover {
+    width: 180px;
+    border: 1px solid #31393b;
+}
+
+footer {
+    border-top: 1px solid #31393b;
+    color: #126864;
+    font-family: Hack, monospace;
+    font-size: 0.50em;
+    margin-top: 1em;
+    padding-top: 0em;
+    text-align: right;
+}
