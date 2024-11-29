@@ -1,17 +1,32 @@
+:root {
+    --border-color: #31393b;
+    --link-color: #a8a452;
+    --link-hover: #5ab0ac;
+    --bg-color: #293133;
+    --footer-color: #126864;
+    --font-mono: Hack, monospace;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     font-family: system-ui;
     font-size: clamp(1em, 0.909em + 0.45vmin, 1.25em);
 }
 
-body :not(:is(h1, h2, h3, h4, h5, h6)) {
-    line-height: 1.75;
-}
-
 body {
     max-width: 1000px;
-    padding: calc(1vmin + 0.5rem);
+    min-height: 100vh;
     margin-inline: auto;
-    background: #293133;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -20,50 +35,73 @@ header {
 }
 
 nav {
-    border-top: 1px solid #31393b;
-    font-family: Hack, monospace;
+    border-top: 1px solid var(--border-color);
+    font-family: var(--font-mono);
     font-size: 0.75em;
     margin-bottom: 2em;
     text-align: right;
 }
 
 nav a {
-    color: #a8a452;
+    color: var(--link-color);
     text-decoration: none;
+    transition: color 500ms ease;
 }
 
 nav a:not(:last-child):after {
     content: " • ";
-    color: #31393b;
+    color: var(--border-color);
 }
 
 nav a:hover {
-    color: #5ab0ac;
+    color: var(--link-hover);
 }
 
 main {
+    flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 248px);
-    row-gap: 1px;
-    column-gap: 2px;
+    grid-template-columns: repeat(auto-fill, 240px);
+    row-gap: 10px;
+    column-gap: 10px;
     justify-content: center;
     align-items: center;
 }
 
-#cover {
-    width: 247px;
-    height: 247px;
+.cover {
+    width: 240px;
+    height: 240px;
     object-fit: cover;
-    border: 1px solid #31393b;
+    border: 2px solid var(--border-color);
     display: block;
+    transition: transform 100ms ease-in-out;
+}
+
+.cover:hover {
+    transform: scale(1.02);
 }
 
 footer {
-    border-top: 1px solid #31393b;
-    color: #126864;
-    font-family: Hack, monospace;
+    border-top: 1px solid var(--border-color);
+    color: var(--footer-color);
+    font-family: var(--font-mono);
     font-size: 0.5em;
     margin-top: 1em;
-    padding-top: 0em;
+    padding-top: 0.5em;
     text-align: right;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    main {
+        grid-template-columns: repeat(auto-fill, 150px);
+        gap: 10px;
+    }
+
+    .cover {
+        width: 150px;
+        height: 150px;
+    }
 }
