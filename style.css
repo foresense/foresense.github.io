@@ -3,13 +3,13 @@ html {
     font-size: clamp(1em, 0.909em + 0.45vmin, 1.25em);
 }
 
-body :not(:is(h1,h2,h3,h4,h5,h6)) {
+body :not(:is(h1, h2, h3, h4, h5, h6)) {
     line-height: 1.75;
 }
 
 body {
-    max-width: 70ch;
-    padding: calc(1vmin + .5rem);
+    max-width: 1000px;
+    padding: calc(1vmin + 0.5rem);
     margin-inline: auto;
     background: #293133;
 }
@@ -32,24 +32,37 @@ nav a {
     text-decoration: none;
 }
 
+nav a:not(:last-child):after {
+    content: " • ";
+    color: #31393b;
+}
+
 nav a:hover {
     color: #5ab0ac;
 }
 
 main {
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 248px);
+    row-gap: 1px;
+    column-gap: 2px;
+    justify-content: center;
+    align-items: center;
 }
 
 #cover {
-    width: 180px;
+    width: 247px;
+    height: 247px;
+    object-fit: cover;
     border: 1px solid #31393b;
+    display: block;
 }
 
 footer {
     border-top: 1px solid #31393b;
     color: #126864;
     font-family: Hack, monospace;
-    font-size: 0.50em;
+    font-size: 0.5em;
     margin-top: 1em;
     padding-top: 0em;
     text-align: right;
